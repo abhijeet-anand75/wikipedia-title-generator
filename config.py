@@ -99,8 +99,8 @@ N_LAYERS      = 1     # Number of GRU layers
 # ── Training ──────────────────────────────────────────────────────────────────
 BATCH_SIZE      = 16      # Reduce to 8 if CUDA OOM on Colab
 LEARNING_RATE   = 0.001   # Adam optimizer learning rate
-EPOCHS_BASIC    = 10      # Epochs for B1 basic RNN
-EPOCHS_IMPROVED = 5       # Epochs for B2 improved variants
+EPOCHS_BASIC    = 30      # Epochs for B1 basic RNN
+EPOCHS_IMPROVED = 15      # Epochs for B2 improved variants
                           # (fewer needed — GloVe gives head start)
 CLIP            = 1.0     # Gradient clipping norm (prevents exploding gradients)
 TEACHER_FORCING = 0.5     # 50% teacher forcing during training
@@ -139,7 +139,7 @@ T5_MAX_TARGET_LENGTH = 30    # Max title tokens (Wikipedia titles are short)
 # ── Fine-tuning (T5-small) ────────────────────────────────────────────────────
 T5_BATCH_SIZE       = 8      # Per-device batch size (fits Colab 12-16GB GPU)
 T5_LEARNING_RATE    = 5e-5   # Standard fine-tuning LR for T5
-T5_EPOCHS           = 1      # Increase to 3-5 if Colab session allows
+T5_EPOCHS           = 3      # Increase to 3-5 if Colab session allows
                              # 1 epoch ≈ 3.5 hours on Colab free GPU
 T5_WEIGHT_DECAY     = 0.01
 T5_GRAD_ACCUM_STEPS = 4      # Effective batch = 8 * 4 = 32
