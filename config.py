@@ -50,23 +50,25 @@ DRIVE_TRAIN_ID = "1cYBtTR0d6Iv15giUQIySY7MfBZXVCEXC"
 DRIVE_TEST_ID  = "1cVHnB0Hz6wXUpzgVV3Z2iqfFWSTtb7UI"
 DRIVE_GLOVE_ID = "1cTO_lr8-ttiQbjb5Na7TXd51M6kgpxV_"
 
-# ── Raw Data (downloaded to Colab local storage) ──────────────────────────────
-DATA_DIR   = "/content"
-TRAIN_PATH = "/content/train.csv"
-TEST_PATH  = "/content/test.csv"
-GLOVE_PATH = "/content/glove.6B.300d.txt"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# ── Raw Data (local project storage) ─────────────────────────────────────────
+DATA_DIR   = os.path.join(BASE_DIR, "data", "raw")
+TRAIN_PATH = os.path.join(DATA_DIR, "train.csv")
+TEST_PATH  = os.path.join(DATA_DIR, "test.csv")
+GLOVE_PATH = os.path.join(DATA_DIR, "glove.6B.300d.txt")
 
 # ── Processed Data ────────────────────────────────────────────────────────────
-PROCESSED_DIR   = "/content"
-TRAIN_PROCESSED = "/content/preprocessed_train.csv"
-VAL_PROCESSED   = "/content/preprocessed_validation.csv"
-TEST_PROCESSED  = "/content/preprocessed_test.csv"
+PROCESSED_DIR   = os.path.join(BASE_DIR, "data", "processed")
+TRAIN_PROCESSED = os.path.join(PROCESSED_DIR, "preprocessed_train.csv")
+VAL_PROCESSED   = os.path.join(PROCESSED_DIR, "preprocessed_validation.csv")
+TEST_PROCESSED  = os.path.join(PROCESSED_DIR, "preprocessed_test.csv")
 
-# ── Saved Artifacts ───────────────────────────────────────────────────────────
-VOCAB_SAVE_PATH   = "/content/vocab.pkl"
-RNN_MODEL_PATH    = "/content/best_rnn_model.pt"
-T5_OUTPUT_DIR     = "/content/t5-title-gen"
-RESULTS_SAVE_PATH = "/content/results_all.json"
+# ── Saved Artifacts ────────────────────────────────────────────────────────────
+VOCAB_SAVE_PATH   = os.path.join(PROCESSED_DIR, "vocab.pkl")
+RNN_MODEL_PATH    = os.path.join(BASE_DIR, "checkpoints", "best_rnn_model.pt")
+T5_OUTPUT_DIR     = os.path.join(BASE_DIR, "checkpoints", "t5-title-gen")
+RESULTS_SAVE_PATH = os.path.join(BASE_DIR, "results_all.json")
 
 # ── Google Drive backup folder ────────────────────────────────────────────────
 # Results are copied here after training to survive session disconnect
